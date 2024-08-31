@@ -89,8 +89,8 @@ setBackground(background);
 let timer = 0;
 
 let v = 1
-let x = -v;
-let y = v;
+let x = -1;
+let y = 1;
 
 let alive = 0;
 const mainloop = () =>{
@@ -104,7 +104,7 @@ const mainloop = () =>{
 
   if(getFirst(ball).y === 0){
     y*= -1;
-  }if(getFirst(ball).y ===7){
+  }if(getFirst(ball).y >=7){
     y*=-1;
   }
   if(getFirst(ball).y === getFirst(player).y && getFirst(player).x +1 === getFirst(ball).x){
@@ -116,12 +116,9 @@ const mainloop = () =>{
     x*=-1;
     timer += 2;
   }
-    if(timer%5 === 0){
-      v++;
-    }
 
-  getFirst(ball).x += v
-  getFirst(ball).y += v
+  getFirst(ball).x += x
+  getFirst(ball).y += y
   addText(String(score),options = {x:9,y:1,color : color`2`})
   }if(alive === 2){  addText("press i to restart",options = {x:1,y:1,color : color`2`})
 
